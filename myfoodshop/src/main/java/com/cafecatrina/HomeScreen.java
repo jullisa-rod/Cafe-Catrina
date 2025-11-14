@@ -56,34 +56,34 @@ public class HomeScreen {
            // int coffeeChoice = .nextInt();
             //.nextLine();
 
-
-            String coffeeName = switch (coffeeChoice) {
-                case 1 -> "Cafe de Olla";
-                case 2 -> "Latte";
-                case 3 -> "Macchiato";
-                default -> "Unknown Coffee";
-            };
-
-            System.out.println("\nPlease select a size:");
-            System.out.println("1. Small($4.50");
-            System.out.println("2. Medium ($5.00");
-            System.out.println("3. Large ($5.50");
-            System.out.println("Please make your selection:");
-            int sizeChoice = scanner.nextInt();
-            scanner.nextLine();
-
-
-            switch (sizeChoice) {
-                case 1 -> totalPrice = 4.50;
-                case 2 -> totalPrice = 5.00;
-                case 3 -> totalPrice = 5.50;
-                default -> {
-                    System.out.println("Invalid size!");
-                    return;
-                }
-            }
-            System.out.println("\nSelect your flavor (type 'done' when finished: ");
-            System.out.println("Caramel, vanilla, White Chocolate, Mocha, Masapan (+$0.50), Horchata (+$0.50)");
+//
+//            String coffeeName = switch (coffeeChoice) {
+//                case 1 -> "Cafe de Olla";
+//                case 2 -> "Latte";
+//                case 3 -> "Macchiato";
+//                default -> "Unknown Coffee";
+//            };
+//
+//            System.out.println("\nPlease select a size:");
+//            System.out.println("1. Small($4.50");
+//            System.out.println("2. Medium ($5.00");
+//            System.out.println("3. Large ($5.50");
+//            System.out.println("Please make your selection:");
+//            int sizeChoice = scanner.nextInt();
+//            scanner.nextLine();
+//
+//
+//            switch (sizeChoice) {
+//                case 1 -> totalPrice = 4.50;
+//                case 2 -> totalPrice = 5.00;
+//                case 3 -> totalPrice = 5.50;
+//                default -> {
+//                    System.out.println("Invalid size!");
+//                    return;
+//                }
+//            }
+//            System.out.println("\nSelect your flavor (type 'done' when finished: ");
+//            System.out.println("Caramel, vanilla, White Chocolate, Mocha, Masapan (+$0.50), Horchata (+$0.50)");
     }
 
 }

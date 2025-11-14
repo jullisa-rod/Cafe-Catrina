@@ -1,4 +1,6 @@
 package com.cafecatrina;
 
-public class Latte {
+public class Latte extends Flavor{
+    public Latte() {
+    }
 }
