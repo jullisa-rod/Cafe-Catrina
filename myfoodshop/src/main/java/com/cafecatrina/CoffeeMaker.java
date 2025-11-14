@@ -3,22 +3,36 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class CoffeeType {
+public class CoffeeMaker {
 
     private static Scanner scanner = new Scanner(System.in);
-
-    public static void show(ArrayList<CoffeeItems> OrderItems) {
+    public static Coffee makeCoffee() {
+        System.out.println("Build your coffee!");
+        String name = getName();
+        String size = getSize();
+        double price;
+        if (size.equalsIgnoreCase("S")) {
+           price = 4.50;
+        }
+        else if (size.equalsIgnoreCase("M")) {
+            price = 5.00;
+        }
+        else {
+            price = 5.50;
+        }
+        Coffee coffee = new Coffee(name, size, price);
+        return coffee;
+    }
+    private static String getName() {
 
         boolean running = true;
+        String name = "";
 
         while (running) {
-
-            System.out.println("Build your coffee!");
             System.out.println("Choose your Coffee Option:");
             System.out.println("l. Latte");
             System.out.println("m. Macchiato");
             System.out.println("c. Café de Olla");
-            System.out.println("x. Exit");
             System.out.print("Enter a character here: ");
 
             String coffeeType = scanner.nextLine();
@@ -26,24 +40,17 @@ public class CoffeeType {
             switch (coffeeType) {
 
                 case "l":
-                    System.out.println("Latte selected");
-                    double lattePrice = chooseSize();
-                    System.out.println("Total Latte Price: $" + lattePrice);
+                    name = "Latte";
+                    running = false;
                     break;
 
                 case "m":
-                    System.out.println("Macchiato selected");
-                    double macPrice = chooseSize();
-                    System.out.println("Total Macchiato Price: $" + macPrice);
+                    name = "Macchiato";
+                    running = false;
                     break;
 
                 case "c":
-                    System.out.println("Café de Olla selected");
-                    double ollaPrice = chooseSize();
-                    System.out.println("Total Café de Olla Price: $" + ollaPrice);
-                    break;
-
-                case "x":
+                    name = "Cafe de Olla";
                     running = false;
                     break;
 
@@ -52,9 +59,10 @@ public class CoffeeType {
                     break;
             }
         }
+        return name;
     }
 
-    private static double chooseSize() {
+    private static String getSize() {
         System.out.println("1. Small  ($4.50)");
         System.out.println("2. Medium ($5.00)");
         System.out.println("3. Large  ($5.50)");
@@ -65,20 +73,20 @@ public class CoffeeType {
         switch (sizeChoice) {
 
             case "1":
-                System.out.println("Size small selected.");
-                return 4.50;
+                System.out.println("Size Small selected.");
+                return "S";
 
             case "2":
-                System.out.println("Size medium selected.");
-                return 5.00;
+                System.out.println("Size Medium selected.");
+                return "M";
 
             case "3":
-                System.out.println("Size large selected.");
-                return 5.50;
+                System.out.println("Size Large selected.");
+                return "L";
 
             default:
                 System.out.println("Invalid size, defaulting to Small.");
-                return 4.50;
+                return "S";
         }
     }
 }

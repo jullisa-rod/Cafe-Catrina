@@ -10,11 +10,12 @@ public class OrderScreen {
 
 
     private static Scanner sc = new Scanner(System.in);
+    private static ArrayList<MenuItem> order;
 
     public static void startOrder() {
 
         boolean ordering = true;
-
+        order = new ArrayList<>();
 
         while (ordering) {
             System.out.println("\nPlease make your first selection ");
@@ -29,7 +30,8 @@ public class OrderScreen {
             switch (choice) {
 
                 case "c":
-                    handleCoffee();
+                    Coffee coffee = CoffeeMaker.makeCoffee();
+                    order.add(coffee);
                     break;
 
                 case "hc":
@@ -50,56 +52,5 @@ public class OrderScreen {
             }
         }
     }
-    private static void handleCoffee() {
 
-        ArrayList<String> coffeeChosen = new ArrayList<>();
-        boolean choosing = true;
-
-
-            while (choosing) {
-
-                System.out.println("\nChoose your Coffee Option:");
-                System.out.println("l. Latte");
-                System.out.println("m. Macchiato");
-                System.out.println("o. Café de Olla");
-                System.out.println("d. finished choosing");
-
-                System.out.println("Choice:");
-                String coffeeChoice = sc.nextLine().trim().toLowerCase();
-
-
-                double latteCost = 0;
-                //boolean choosingCoffee = true;
-                //ArrayList<String> coffeeChosen = new ArrayList<>();
-
-                switch (coffeeChoice) {
-
-
-                    case "l":
-                        coffeeChosen.add("Latte");
-                        System.out.println("Latte added.");
-                        break;
-
-                    case "m":
-                        coffeeChosen.add("Macchiato");
-                        System.out.println("Macchiato added.");
-                        break;
-
-                    case "o":
-                        coffeeChosen.add("Café de Olla");
-                        System.out.println("Café de Olla added.");
-                        break;
-
-                    case "d":
-                        choosing = false;
-                        break;
-
-                    default:
-                        System.out.println("Invalid option.");
-                        break;
-
-            }
-        }
-        System.out.println("You Selected: " + coffeeChosen);
-    }
 }

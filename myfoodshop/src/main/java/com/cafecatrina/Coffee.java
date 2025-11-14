@@ -1,13 +1,13 @@
 package com.cafecatrina;
 
-public class HotChocolate {
+public class Coffee extends MenuItem {
     private String name;
-    private boolean whippedCream;
+    private String size;
     private double price;
 
-    public HotChocolate(String name, boolean whippedCream, double price) {
+    public Coffee(String name, String size, double price) {
         this.name = name;
-        this.whippedCream = whippedCream;
+        this.size = size;
         this.price = price;
     }
 
@@ -19,12 +19,12 @@ public class HotChocolate {
         this.name = name;
     }
 
-    public boolean isWhippedCream() {
-        return whippedCream;
+    public String getSize() {
+        return size;
     }
 
-    public void setWhippedCream(boolean whippedCream) {
-        this.whippedCream = whippedCream;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public double getPrice() {
