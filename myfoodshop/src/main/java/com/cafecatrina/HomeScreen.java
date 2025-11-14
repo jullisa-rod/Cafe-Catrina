@@ -9,54 +9,69 @@ import static com.cafecatrina.Main.simulateLoading;
 
 
 public class HomeScreen {
-    public void showHomeScreen() {
-    Scanner scanner = new Scanner(System.in);
-    boolean running = true;
-    double totalPrice = 0.0;
-    ArrayList<String> flavors = new ArrayList<>();
-    ArrayList<String> extras = new ArrayList<>();
-
-        System.out.println("Welcome to Café Catrina!");
-        System.out.println("Would you like to place an order today?");
-        System.out.print("Please make your selection: ");
-
-        while (running) {
-            System.out.println("o. Yes.");
-            System.out.println("x. Exit");
-            System.out.print("Enter a character here: ");
-            String mainChoice = scanner.nextLine();
 
 
-            switch(mainChoice) {
+    public static void start() {
+            Scanner sc = new Scanner(System.in);
+            boolean running = true;
 
-            case "o":
-                OrderScreen.showOrderScreen();
-
-                break;
-
-            case "x":
-                System.out.println("Thank you, Goodbye!");
-                running = false;
-
-        }
+            System.out.println("Welcome to Café Catrina!");
 
 
+            while (running) {
+                System.out.println("Would you like to place an order today?");
+                System.out.print("Please make your selection: ");
+                System.out.println("o. Yes.");
+                System.out.println("x. Exit");
+                System.out.println("Enter a character here: ");
+                String mainChoice = sc.nextLine();
 
 
+                switch (mainChoice) {
 
-
-        //switch (Choice) {
-        //case "1":
-            // coffee options
-            System.out.println("\nChoose your coffee type:");
-            System.out.println("1. Café de Olla ");
-            System.out.println("2. Latte ");
-            System.out.println("3. Macchiato ");
-            System.out.print("Please make your selection: ");
-           // int coffeeChoice = .nextInt();
-            //.nextLine();
-
+                    case "o":
+                        //OrderScreen.showOrderScreen();
+                        break;
 //
+
+                    case "x":
+                        System.out.println("Thank you, Goodbye!");
+                        running = false;
+                        break;
+
+
+                }
+
+
+                //switch (Choice) {
+                //case "1":
+                // coffee options
+//                System.out.println("\nChoose your coffee type:");
+//                System.out.println("1. Café de Olla ");
+//                System.out.println("2. Latte ");
+//                System.out.println("3. Macchiato ");
+//                System.out.print("Please make your selection: ");
+//                String coffeeChoice = sc.nextLine();
+//                //sc.nextLine();
+//
+//
+//                System.out.println("Choose size: small / medium / large");
+//                String size = sc.nextLine();
+//
+//                // Flavor
+//                System.out.println("Choose a flavor for your coffee:");
+//                System.out.println("1. Caramel");
+//                System.out.println("2. Vanilla");
+//                System.out.println("3. White Chocolate");
+//                System.out.println("4. Mocha");
+//                System.out.println("5. Masapan (+0.50)");
+//                System.out.println("6. Horchata (+0.50)");
+//                String flavorChoice = sc.nextLine();
+
+
+                // Flavor flavor = createFlavor(flavorChoice);
+
+
 //            String coffeeName = switch (coffeeChoice) {
 //                case 1 -> "Cafe de Olla";
 //                case 2 -> "Latte";
@@ -84,7 +99,7 @@ public class HomeScreen {
 //            }
 //            System.out.println("\nSelect your flavor (type 'done' when finished: ");
 //            System.out.println("Caramel, vanilla, White Chocolate, Mocha, Masapan (+$0.50), Horchata (+$0.50)");
+            }
+        }
     }
 
-}
-}

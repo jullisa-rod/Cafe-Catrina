@@ -1,74 +1,56 @@
 package com.cafecatrina;
+
+
 import static com.cafecatrina.Main.simulateLoading;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrderScreen {
-    public static void showOrderScreen() {
-        Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void startOrder() {
+        Scanner sc = new Scanner(System.in);
         boolean running = true;
 
 
         while (running) {
             System.out.println("Please make your first selection ");
-            System.out.println("c. Coffee");
-            System.out.println("hc. Hot Chocolate");
-            System.out.println("p. Pan Dulce");
-            System.out.println("x. exit");
+            System.out.println("c. Add Coffee");
+            System.out.println("hc. Add Hot Chocolate");
+            System.out.println("p. Add Pan Dulce");
+            System.out.println("x. Checkout");
             System.out.print("Please make your selection: ");
-            String orderChoice = scanner.nextLine();
-//            scanner.nextLine();
+            String orderChoice = sc.nextLine();
 
 
-            switch (orderChoice){
-                case "c":
-                    Scanner scanner = new Scanner(System.in);
-                    boolean coffeechoice = true;
+            boolean coffeechoice = true;
+            while (coffeechoice) {
 
+                System.out.println("Choose your Coffee Option:");
+                System.out.println("l. Latte");
+                System.out.println("m. Macchiato");
+                System.out.println("c. Café de Olla");
+                System.out.println("done choosing");
+                double latteCost = 0;
+                boolean choosingCoffee = true;
+                ArrayList<String> coffeeChosen = new ArrayList<>();
 
-                    while (coffeechoice) {
-                        System.out.println("Choose your Coffee Option:");
-                        System.out.println("l. Latte");
-                        System.out.println("m. Macchiato");
-                        System.out.println("c. Café de Olla");
-                        System.out.println("Return to Main Order Menu:");
-                        String coffeeType = scanner.nextLine();
+                while (choosingCoffee) {
+                    System.out.println("choice");
+                    String coffeeChoice = scanner.nextLine();
 
-                        switch (coffeeType) {
-                            case "l":
-                                //Latte.showLatte();
-                                break;
-
-                            case "m":
-                                Macchiato.showMacchiato();
-                                break;
-
-                            case "c":
-                                CafeDeOlla.showCafeDeOlla();
-                                break;
-
-                            case "x":
-                                return;
-                        }
-
+                    switch (coffeeChoice) {
+                        case ("l"):
+                            latteCost += 4.00;
+                            coffeeChosen.add("Latte");
+                            break;
 
 
                     }
-                    break;
+                }
 
-                case "hc":
-                    HotChocolate.showHotChocolate();
-                    break;
-
-                case "p":
-                    PanDulce.showPanDulce();
-                    break;
-
-                case "x":
-                   return;
             }
-
         }
     }
-
-
 }

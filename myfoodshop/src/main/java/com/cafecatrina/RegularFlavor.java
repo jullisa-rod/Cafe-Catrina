@@ -1,6 +1,7 @@
 package com.cafecatrina;
 
-public class RegularFlavor extends Flavor{
+public class RegularFlavor extends Flavor {
+
     public RegularFlavor(String name) {
         super(name, 0.0);
     }
