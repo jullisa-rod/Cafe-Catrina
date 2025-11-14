@@ -20,7 +20,7 @@ public class HomeScreen {
 
             while (running) {
                 System.out.println("Would you like to place an order today?");
-                System.out.print("Please make your selection: ");
+                System.out.println("Please make your selection: ");
                 System.out.println("o. Yes.");
                 System.out.println("x. Exit");
                 System.out.println("Enter a character here: ");
@@ -30,9 +30,9 @@ public class HomeScreen {
                 switch (mainChoice) {
 
                     case "o":
-                        //OrderScreen.showOrderScreen();
+                        OrderScreen.startOrder();
                         break;
-//
+
 
                     case "x":
                         System.out.println("Thank you, Goodbye!");

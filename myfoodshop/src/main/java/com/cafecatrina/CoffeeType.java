@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 
 public class CoffeeType {
-    private static Scanner scanner = new Scanner(System.in);
-    public static void show(ArrayList < CoffeeItems > OrderItems) {
 
-    {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void show(ArrayList<CoffeeItems> OrderItems) {
+
         boolean running = true;
+
         while (running) {
 
             System.out.println("Build your coffee!");
@@ -18,52 +20,72 @@ public class CoffeeType {
             System.out.println("c. Café de Olla");
             System.out.println("x. Exit");
             System.out.print("Enter a character here: ");
+
             String coffeeType = scanner.nextLine();
 
             switch (coffeeType) {
+
                 case "l":
-                    System.out.println("add latte");
-                    //addLatte(OrderItems);
+                    System.out.println("Latte selected");
+                    double lattePrice = chooseSize();
+                    System.out.println("Total Latte Price: $" + lattePrice);
                     break;
 
                 case "m":
-                    System.out.println("macchiato");
-                    //addMacchiato(OrderItems);
+                    System.out.println("Macchiato selected");
+                    double macPrice = chooseSize();
+                    System.out.println("Total Macchiato Price: $" + macPrice);
                     break;
 
                 case "c":
-                    System.out.println("cafe de olla");
-                    //addCafeDeOlla(OrderItems);
+                    System.out.println("Café de Olla selected");
+                    double ollaPrice = chooseSize();
+                    System.out.println("Total Café de Olla Price: $" + ollaPrice);
                     break;
 
                 case "x":
                     running = false;
-                    continue;
+                    break;
+
                 default:
-                    System.out.println("try again");
-                    continue;
-
-
-//                System.out.println("Chose your Size:");
-//                System.out.println("1. Small ($4.50)");
-//                System.out.println("2. Medium ($5.00)");
-//                System.out.println("3. Large ($5.50)");
-
-//                switch
-//
-//                System.out.println("Choose a flavor:");
-//                System.out.println("1. Caramel");
-//                System.out.println("2. Vanilla");
-//                System.out.println("3. White Chocolate");
-//                System.out.println("4. Mocha");
-//                System.out.println("5. Masapan (+0.50)");
-//                System.out.println("6. Horchata (+0.50)");
-//                String orderChoice = Scanner.nextLine();
-                }
+                    System.out.println("Try again");
+                    break;
             }
         }
     }
+
+    private static double chooseSize() {
+        System.out.println("1. Small  ($4.50)");
+        System.out.println("2. Medium ($5.00)");
+        System.out.println("3. Large  ($5.50)");
+        System.out.print("Enter size: ");
+
+        String sizeChoice = scanner.nextLine();
+
+        switch (sizeChoice) {
+
+            case "1":
+                System.out.println("Size small selected.");
+                return 4.50;
+
+            case "2":
+                System.out.println("Size medium selected.");
+                return 5.00;
+
+            case "3":
+                System.out.println("Size large selected.");
+                return 5.50;
+
+            default:
+                System.out.println("Invalid size, defaulting to Small.");
+                return 4.50;
+        }
+    }
 }
+
+
+
+
 
 //public void addLatte() {
 

@@ -62,7 +62,7 @@ public class OrderScreen {
                 System.out.println("l. Latte");
                 System.out.println("m. Macchiato");
                 System.out.println("o. Café de Olla");
-                System.out.println("finished choosing");
+                System.out.println("d. finished choosing");
 
                 System.out.println("Choice:");
                 String coffeeChoice = sc.nextLine().trim().toLowerCase();
@@ -90,15 +90,13 @@ public class OrderScreen {
                         System.out.println("Café de Olla added.");
                         break;
 
+                    case "d":
+                        choosing = false;
+                        break;
+
                     default:
                         System.out.println("Invalid option.");
-
-
-                    //switch (coffeeChoice) {
-                        //case ("l"):
-                            //latteCost += 4.00;
-                           // coffeeChosen.add("Latte");
-                            //break;
+                        break;
 
             }
         }
