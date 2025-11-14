@@ -1,5 +1,6 @@
 package com.cafecatrina;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,10 +25,10 @@ public class CheckoutScreen {
             else if (item instanceof PanDulce panDulce) {
                 System.out.print(panDulce.getName());
                 if (panDulce.isWarmedUp()) {
-                    System.out.println(" with Warmed Up");
+                    System.out.print(" with Warmed Up");
                 }
                 else {
-                    System.out.println(" Not Warmed Up");
+                    System.out.print(" Not Warmed Up");
                 }
                 System.out.println(" " + String.format("$%.2f", panDulce.getPrice()));
 
@@ -40,7 +41,11 @@ public class CheckoutScreen {
         switch (input) {
             case "y":
                 System.out.println("Printing receipt to file");
-                ReceiptWriter.writeToFile(order);
+                try {
+                    ReceiptWriter.writeToFile(order);
+                } catch (IOException e) {
+                    System.out.println("Something went wrong when writing the receipt");
+                }
                 break;
 
             case "n":
