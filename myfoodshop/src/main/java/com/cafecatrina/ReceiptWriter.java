@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class ReceiptWriter {
     public static void writeToFile(ArrayList<MenuItem> order) throws IOException {
+        double totalPrice = 0;
 
         LocalDateTime dateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
@@ -17,10 +18,13 @@ public class ReceiptWriter {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             for (MenuItem item : order) {
+
                 if (item instanceof Coffee coffee) {
+                    totalPrice += coffee.getPrice();
                     bw.write(coffee.getSize() + " " + coffee.getName() + " " + String.format("$%.2f", coffee.getPrice())+ "\n");
 
                 } else if (item instanceof HotChocolate hotChocolate) {
+                    totalPrice += hotChocolate.getPrice();
                     bw.write(hotChocolate.getName());
                     if (hotChocolate.isWhippedCream()) {
                         bw.write(" with Whipped Cream");
@@ -29,6 +33,7 @@ public class ReceiptWriter {
                     }
                     bw.write(" " + String.format("$%.2f", hotChocolate.getPrice())+ "\n");
                 } else if (item instanceof PanDulce panDulce) {
+                    totalPrice += panDulce.getPrice();
                     bw.write(panDulce.getName());
                     if (panDulce.isWarmedUp()) {
                         bw.write(" with Warmed Up");
@@ -38,6 +43,7 @@ public class ReceiptWriter {
                     bw.write(" " + String.format("$%.2f", panDulce.getPrice())+ "\n");
 
                 }
+                bw.write(String.format("Total: $%.2f \n", totalPrice ));
             }
         }
     }

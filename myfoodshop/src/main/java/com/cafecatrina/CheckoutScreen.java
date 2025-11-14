@@ -7,14 +7,18 @@ import java.util.Scanner;
 public class CheckoutScreen {
     public static void startCheckout(ArrayList<MenuItem>order, Scanner sc) {
         System.out.println("Your Receipt:");
+        double totalPrice = 0;
         for (MenuItem item : order) {
             if (item instanceof Coffee coffee) {
+                totalPrice += coffee.getPrice();
                 System.out.println(coffee.getSize() + " " + coffee.getName() + " " + String.format("$%.2f", coffee.getPrice()));
 
             }
             else if (item instanceof HotChocolate hotChocolate) {
+                totalPrice += hotChocolate.getPrice();
                 System.out.print(hotChocolate.getName());
                 if (hotChocolate.isWhippedCream()) {
+
                     System.out.print(" with Whipped Cream");
                 }
                 else {
@@ -23,6 +27,7 @@ public class CheckoutScreen {
                 System.out.println(" " + String.format("$%.2f", hotChocolate.getPrice()));
             }
             else if (item instanceof PanDulce panDulce) {
+                totalPrice += panDulce.getPrice();
                 System.out.print(panDulce.getName());
                 if (panDulce.isWarmedUp()) {
                     System.out.print(" with Warmed Up");
@@ -34,6 +39,7 @@ public class CheckoutScreen {
 
             }
         }
+        System.out.printf("Total:$%.2f \n", totalPrice);
         System.out.println("Would you like you confirm or cancel your order?");
         System.out.print("Enter y or n : ");
         String input = sc.nextLine().toLowerCase();
