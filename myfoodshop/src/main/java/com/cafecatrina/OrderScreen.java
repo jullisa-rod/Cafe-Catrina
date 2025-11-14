@@ -35,15 +35,18 @@ public class OrderScreen {
                     break;
 
                 case "hc":
-                    System.out.println("Added Hot Chocolate!");
+                    HotChocolate hotChocolate = HotChocolateMaker.makeHotChocolate();
+                    order.add(hotChocolate);
                     break;
 
                 case "p":
-                    System.out.println("Added Pan Dulce!");
+                    PanDulce panDulce = PanDulceMaker.makePanDulce();
+                    order.add(panDulce);
                     break;
 
                 case "x":
                     System.out.println("Checking out...");
+                    CheckoutScreen.startCheckout(order, sc);
                     ordering = false;
                     break;
 

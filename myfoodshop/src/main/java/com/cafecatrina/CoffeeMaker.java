@@ -63,24 +63,24 @@ public class CoffeeMaker {
     }
 
     private static String getSize() {
-        System.out.println("1. Small  ($4.50)");
-        System.out.println("2. Medium ($5.00)");
-        System.out.println("3. Large  ($5.50)");
+        System.out.println("s. Small  ($4.50)");
+        System.out.println("m. Medium ($5.00)");
+        System.out.println("l. Large  ($5.50)");
         System.out.print("Enter size: ");
 
-        String sizeChoice = scanner.nextLine();
+        String sizeChoice = scanner.nextLine().toLowerCase();
 
         switch (sizeChoice) {
 
-            case "1":
+            case "s":
                 System.out.println("Size Small selected.");
                 return "S";
 
-            case "2":
+            case "m":
                 System.out.println("Size Medium selected.");
                 return "M";
 
-            case "3":
+            case "l":
                 System.out.println("Size Large selected.");
                 return "L";
 
@@ -90,46 +90,3 @@ public class CoffeeMaker {
         }
     }
 }
-
-
-
-
-
-//public void addLatte() {
-
-
-    //        public class Coffee {
-//            protected String name;
-//            protected double basePrice;
-//            protected ArrayList<Flavor> flavors = new ArrayList<>();
-//            public Coffee(String name, double basePrice) {
-//                this.name = name;
-//                this.basePrice = basePrice;
-//            }
-//
-//            public void addFlavor(Flavor flavor) {
-//                flavors.add(flavor);
-//            }
-//
-//            public double getTotalPrice() {
-//                double total = basePrice;
-//                for (Flavor f : flavors) {
-//                    total += f.getExtraCost();
-//                }
-//                return total;
-//            }
-//
-//            public void printOrder() {
-//                System.out.println("Coffee: " + name);
-//                System.out.println("Base Price: $" + basePrice);
-//
-//                System.out.println("Flavors:");
-//                for (Flavor f : flavors) {
-//                    System.out.println(" - " + f.getDescription());
-//                }
-//
-//                System.out.println("Total: $" + String.format("%.2f", getTotalPrice()));
-//            }
-//
-//        }
-   // }

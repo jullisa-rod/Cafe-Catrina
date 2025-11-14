@@ -1,6 +1,6 @@
 package com.cafecatrina;
 
-public class HotChocolate {
+public class HotChocolate extends MenuItem {
     private String name;
     private boolean whippedCream;
     private double price;
